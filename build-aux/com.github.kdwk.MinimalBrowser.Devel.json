@@ -1,11 +1,11 @@
 {
     "id": "com.github.kdwk.MinimalBrowser.Devel",
-    "runtime": "org.gnome.Platform",
-    "runtime-version": "44",
+    "runtime": "org.gnome.Sdk",
+    "runtime-version": "master",
     "sdk": "org.gnome.Sdk",
     "sdk-extensions": [
         "org.freedesktop.Sdk.Extension.rust-stable",
-        "org.freedesktop.Sdk.Extension.llvm15"
+        "org.freedesktop.Sdk.Extension.llvm16"
     ],
     "command": "minimal-browser",
     "finish-args": [
@@ -15,11 +15,12 @@
         "--device=dri",
         "--env=RUST_LOG=minimal_browser=debug",
         "--env=G_MESSAGES_DEBUG=none",
-        "--env=RUST_BACKTRACE=1"
+        "--env=RUST_BACKTRACE=1",
+        "--env=WEBKIT_DISABLE_DMABUF_RENDERER=1"
     ],
     "build-options": {
-        "append-path": "/usr/lib/sdk/rust-stable/bin:/usr/lib/sdk/llvm15/bin",
-        "prepend-ld-library-path": "/usr/lib/sdk/llvm15/lib",
+        "append-path": "/usr/lib/sdk/rust-stable/bin:/usr/lib/sdk/llvm16/bin",
+        "prepend-ld-library-path": "/usr/lib/sdk/llvm16/lib",
         "build-args": [
             "--share=network"
         ],
